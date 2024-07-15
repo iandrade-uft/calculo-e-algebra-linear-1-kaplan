@@ -1,0 +1,36 @@
+\begin{center}
+    \vspace{1cm}
+    \textbf{\Large{\textcolor{mainColor}{Capítulo \capitulo:} Geometria vetorial em duas dimensões}}
+    \vspace{1cm}
+
+    \textbf{PROBLEMAS}
+\end{center}
+
+\begin{enumerate}
+    \item Seja dado o triângulo $ABC$. Seja $\overrightarrow{AB} = \mathbf{u}$ e $\overrightarrow{AC} = \mathbf{v}$, e sejam os pontos $P$, $Q$ escolhidos de modo que $\overrightarrow{AP} = 3\mathbf{u}$, $\overrightarrow{AQ} = 2 \mathbf{v}$, como na Fig. 1.13. 
+<<>>=
+A <- c(0, 0)
+B <- c(3, -2.5)
+C <- c(3, 0)
+Q <- 2 * C
+P <- 3 * B
+
+M <- (B + C)/2
+@
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}[scale=0.7]
+            \draw (\Sexpr{A}) node[left] {A} -- (\Sexpr{Q}) node[right] {Q} -- (\Sexpr{P}) node[right] {P} -- cycle; 
+            \draw (\Sexpr{P}) -- (\Sexpr{C}) node[above] {C} -- (\Sexpr{B}) node[below] {B} -- (\Sexpr{Q});
+            \filldraw (\Sexpr{M}) circle (2pt) node[left] {M};
+        \end{tikzpicture}      
+    \end{figure}
+    
+    Exprima os seguintes vetores em função de $\mathbf{u}$ e $\mathbf{v}$:
+
+    \begin{enumerate}[label=(\alph*)]
+        \item $\overrightarrow{BC}$
+    \end{enumerate}
+\end{enumerate}
+
+
