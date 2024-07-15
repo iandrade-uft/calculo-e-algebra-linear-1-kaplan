@@ -8,7 +8,8 @@
 
 \begin{enumerate}
     \item Seja dado o triângulo $ABC$. Seja $\overrightarrow{AB} = \mathbf{u}$ e $\overrightarrow{AC} = \mathbf{v}$, e sejam os pontos $P$, $Q$ escolhidos de modo que $\overrightarrow{AP} = 3\mathbf{u}$, $\overrightarrow{AQ} = 2 \mathbf{v}$, como na Fig. 1.13. 
-<<>>=
+
+<<include=FALSE>>=
 A <- c(0, 0)
 B <- c(3, -2.5)
 C <- c(3, 0)
@@ -16,6 +17,20 @@ Q <- 2 * C
 P <- 3 * B
 
 M <- (B + C)/2
+
+get_coef <- function(A, B) {
+    xa <- A[1]
+    ya <- A[2]
+    xb <- B[1]
+    yb <- B[2]
+    return(c(ya-yb, xb-xa, xa*yb-xb*ya))
+}
+eq1 <- get_coef(B, Q)
+eq2 <- get_coef(C, P)
+
+A1 <- rbind(eq1[1:2], eq2[1:2])
+B1 <- -c(eq1[3], eq2[3])
+D <- solve(A1, B1)
 @
     \begin{figure}[H]
         \centering
@@ -23,6 +38,9 @@ M <- (B + C)/2
             \draw (\Sexpr{A}) node[left] {A} -- (\Sexpr{Q}) node[right] {Q} -- (\Sexpr{P}) node[right] {P} -- cycle; 
             \draw (\Sexpr{P}) -- (\Sexpr{C}) node[above] {C} -- (\Sexpr{B}) node[below] {B} -- (\Sexpr{Q});
             \filldraw (\Sexpr{M}) circle (2pt) node[left] {M};
+            \filldraw (\Sexpr{D}) circle (2pt) node[above, yshift=2pt] {D};
+            \draw[-latex, ultra thick] (\Sexpr{A})--(\Sexpr{B}) node[midway, left, xshift=-3pt] {$\mathbf{u}$};
+            \draw[-latex, ultra thick] (\Sexpr{A})--(\Sexpr{C}) node[midway, above] {$\mathbf{v}$};
         \end{tikzpicture}      
     \end{figure}
     
