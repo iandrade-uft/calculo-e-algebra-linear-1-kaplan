@@ -34,6 +34,7 @@ D <- solve(A1, B1)
 @
     \begin{figure}[H]
         \centering
+        \text{Fig. 1.13}\\
         \begin{tikzpicture}[scale=0.7]
             \draw (\Sexpr{A}) node[left] {A} -- (\Sexpr{Q}) node[right] {Q} -- (\Sexpr{P}) node[right] {P} -- cycle; 
             \draw (\Sexpr{P}) -- (\Sexpr{C}) node[above] {C} -- (\Sexpr{B}) node[below] {B} -- (\Sexpr{Q});
@@ -44,11 +45,69 @@ D <- solve(A1, B1)
         \end{tikzpicture}      
     \end{figure}
     
-    Exprima os seguintes vetores em função de $\mathbf{u}$ e $\mathbf{v}$:
+    Exprima os seguintes vetores em função de $\mathbf{u}$ e $\mathbf{v}$: (a) $\overrightarrow{BC}$, (b) $\overrightarrow{PB}$, (c) $\overrightarrow{PQ}$, (d) $\overrightarrow{PC}$, (e) $\overrightarrow{BQ}$, (f) $\overrightarrow{AM}$, onde $M$ é o ponto médio de $\overrightarrow{BC}$, (g) $\overrightarrow{BD} + \overrightarrow{DC} + \overrightarrow{CQ}$.
 
+    \iniSol
+    
     \begin{enumerate}[label=(\alph*)]
         \item $\overrightarrow{BC}$
+        \begin{align*}
+            \overrightarrow{AC} = \overrightarrow{AB} + \overrightarrow{BC} &\Rightarrow \overrightarrow{BC} = \overrightarrow{AC} - \overrightarrow{AB}\\
+            &\Rightarrow \overrightarrow{BC} = \mathbf{v} - \mathbf{u}
+        \end{align*}
+        
+        \item $\overrightarrow{PB}$
+        \begin{align*}
+            \overrightarrow{AP} = \overrightarrow{AB} + \overrightarrow{BP} &\Rightarrow \overrightarrow{AP} = \overrightarrow{AB} - \overrightarrow{PB}\\
+            &\Rightarrow \overrightarrow{PB} = \overrightarrow{AB} - \overrightarrow{AP}\\
+            &\Rightarrow \overrightarrow{PB} = \mathbf{u} - 3\mathbf{u}\\
+            &\Rightarrow \overrightarrow{PB} = -2 \mathbf{u}
+        \end{align*}
+        
+        \item $\overrightarrow{PQ}$
+        \begin{align*}
+            \overrightarrow{AP} = \overrightarrow{AQ} + \overrightarrow{QP} & \Rightarrow \overrightarrow{AP} = \overrightarrow{AQ} - \overrightarrow{PQ}\\
+            &\Rightarrow \overrightarrow{PQ} = \overrightarrow{AQ} - \overrightarrow{AP}\\
+            &\Rightarrow \overrightarrow{PQ} = 2\mathbf{v} - 3\mathbf{u}
+        \end{align*}
+        
+        \item $\overrightarrow{PC}$
+        \begin{align*}
+            \overrightarrow{AP} = \overrightarrow{AC} + \overrightarrow{CP} &\Rightarrow \overrightarrow{AP} = \overrightarrow{AC} - \overrightarrow{PC}\\
+            &\Rightarrow \overrightarrow{PC} = \overrightarrow{AC} - \overrightarrow{AP}\\
+            &\Rightarrow \overrightarrow{PC} = \mathbf{v} - 3 \mathbf{u}
+        \end{align*}
+        
+        \item $\overrightarrow{BQ}$
+        \begin{align*}
+            \overrightarrow{AQ} = \overrightarrow{AB} + \overrightarrow{BQ} &\Rightarrow \overrightarrow{BQ} = \overrightarrow{AQ} - \overrightarrow{AB}\\
+            &\Rightarrow \overrightarrow{BQ} = 2 \mathbf{v} - \mathbf{u}
+        \end{align*}
+        
+        \item $\overrightarrow{AM}$, onde $M$ é o ponto médio de $\overrightarrow{BC}$
+        Podemos escrever $\overrightarrow{AM}$ das seguintes formas:
+        \begin{align*}
+            \begin{cases}
+                \overrightarrow{AM} = \overrightarrow{AB} + \overrightarrow{BM}, \text{ ou }\\
+                \overrightarrow{AM} = \overrightarrow{AC} + \overrightarrow{CM}
+            \end{cases}
+        \end{align*}
+        Como $M$ é o ponto médio de $\overrightarrow{BC}$, devemos ter $\overrightarrow{CM} = -\overrightarrow{BM}$. Assim, substituindo nas expressões acima, tem-se:
+        \begin{align*}
+            \begin{cases}
+                \overrightarrow{AM} = \overrightarrow{AB} + \overrightarrow{BM}\\
+                \overrightarrow{AM} = \overrightarrow{AC} - \overrightarrow{BM}
+            \end{cases}
+            &\Rightarrow 2 \overrightarrow{AM} = \overrightarrow{AB} + \overrightarrow{AC} \\&\Rightarrow \overrightarrow{AM} = \dfrac{\overrightarrow{AB} + \overrightarrow{AC}}{2}\\
+            &\Rightarrow \overrightarrow{AM} = \dfrac{\mathbf{u} + \mathbf{v}}{2}
+        \end{align*}
+        
+        \item $\overrightarrow{BD} + \overrightarrow{DC} + \overrightarrow{CQ}$
+        \begin{align*}
+            \overrightarrow{BD} + \overrightarrow{DC} + \overrightarrow{CQ} = \overrightarrow{BQ} = 2 \mathbf{v} - \mathbf{u}
+        \end{align*}
     \end{enumerate}
+    \fimSol
 \end{enumerate}
 
 
