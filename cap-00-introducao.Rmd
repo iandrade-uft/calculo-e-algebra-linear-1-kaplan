@@ -124,10 +124,57 @@ knitr::opts_chunk$set(echo = TRUE)
       \end{align*}
       A título de exemplo, façamos:
       \begin{align*}
-        \sqrt{2} < x < \sqrt{3} &\Rightarrow 2 < x^2 < 3 \\
-        &\Rightarrow \dfrac{200}{100} < x^2 < \dfrac{300}{100}
+        \sqrt{2} < x < \sqrt{3} &\Rightarrow 2 < x^2 < 3 \Rightarrow \dfrac{200}{100} < x^2 < \dfrac{300}{100} \\
+        &\Rightarrow
+        x^2 = `r knitr::combine_words((15:17)^2, before="\\dfrac{", after="}{100}", and="\\;\\text{ou}\\:")` \Rightarrow x^2 = `r knitr::combine_words(15:17, before="\\left(\\dfrac{", after="}{10}\\right)^2", and="\\;\\text{ou}\\:")` \\
+        &\Rightarrow x = `r knitr::combine_words(15:17, before="\\dfrac{", after="}{10}", and="\\;\\text{ou}\\:")` 
       \end{align*}
     \fimSol
+    %%%%
+    \item Encontre um  número racional $x$ tal que $\pi < x < \pi + 0.01$.\\
+    \iniSol
+      $x = 3,14$
+    \fimSol
     \end{enumerate}
+    %%%%
+    \item Determine se $x < y$, $x = y$, ou $x < y$ para cada um dos seguintes casos:
+    \begin{enumerate}[label=(\alph*)]
+      \item $x=-3$, $y = -2$
+      \item $x = 1$, $y = -2$
+      \item $x = \sqrt{5} - \sqrt{3}$, $y = \sqrt{7} - \sqrt{2}$
+      \item $x = \dfrac{1}{\sqrt{3} - \sqrt{11}}$, $y = \dfrac{1}{\sqrt{3} - \sqrt{13}}$
+    \end{enumerate}
+    \iniSol
+    \begin{enumerate}[label=(\alph*)]
+      \item $x=-3$, $y = -2$
+        \begin{align*}
+          x - y = -3 - (-2) = -3 + 2 = -1 < 0 \Rightarrow x < y
+        \end{align*}
+      %%
+      \item $x = 1$, $y = -2$
+      \begin{align*}
+        x - y = 1 - (-2) = 1 + 2 = 3 > 0 \Rightarrow x > y
+      \end{align*}
+      %%
+      \item $x = \sqrt{5} - \sqrt{3}$, $y = \sqrt{7} - \sqrt{2}$
+      \begin{align*}
+        y - x &= (\sqrt{7} - \sqrt{2}) - (\sqrt{5} - \sqrt{3}) = \sqrt{7} - \sqrt{2} - \sqrt{5} + \sqrt{3}\\
+        &= \sqrt{7} - \sqrt{5} + \sqrt{3} - \sqrt{2} = (\sqrt{7} - \sqrt{5}) + (\sqrt{3} - \sqrt{2})
+      \end{align*}
+      Como $\sqrt{7}- \sqrt{5} > 0$ e $\sqrt{3} - \sqrt{2}> 0$, então:
+      \begin{align*}
+        (\sqrt{7} - \sqrt{5}) + (\sqrt{3} - \sqrt{2}) > 0 \Rightarrow y - x > 0 \Rightarrow y > x \Rightarrow x < y
+      \end{align*}
+      %%
+      \item $x = \dfrac{1}{\sqrt{3} - \sqrt{11}}$, $y = \dfrac{1}{\sqrt{3} - \sqrt{13}}$\\
+      %%
+      Façamos $u = \dfrac{1}{x} = \sqrt{3} - \sqrt{11}$ e $v = \dfrac{1}{y} = \sqrt{3} - \sqrt{13}$. Então,
+      \begin{align*}
+        &u - v = (\sqrt{3} - \sqrt{11}) - (\sqrt{3} - \sqrt{13}) = \sqrt{3} - \sqrt{11} - \sqrt{3} + \sqrt{13}
+        = \sqrt{13} - \sqrt{11} > 0\\ \Rightarrow & u > v \Rightarrow \dfrac{1}{x} > \dfrac{1}{y} \Rightarrow x < y
+      \end{align*}
+      
+    \end{enumerate}
+    \fimSol
 \end{enumerate}
 
