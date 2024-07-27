@@ -268,5 +268,26 @@ knitr::opts_chunk$set(echo = TRUE)
       \end{itemize}
       Os casos em que $b > a$ podem ser determinados de forma análoga, bastando lembrar que $|a-b| = |-(b-a)| = |b-a|$ e repetir o aciocínio acima.
     \fimSol
+    %%%%
+    \item Achar $x$ em cada um dps casos: (a) $|x| = 0$, (b) $|x| = 2$, (c) $|x-1| = 2$, (d) $|x+1| = 1$.\\
+    \iniSol
+    \begin{enumerate}[label=(\alph*)]
+      \item $|x|=0 \Rightarrow = x = 0$
+      \item $|x| = 2 \Rightarrow x = -2$ ou $x = 2$.
+      \item 
+      \begin{align*}
+        |x-1| = 2 \Rightarrow 
+        \begin{cases}
+          x-1 = -2\\
+          x-1 = 2
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+          x = -1\\
+          x = 3
+        \end{cases}
+      \end{align*}
+    \end{enumerate}
+    \fimSol
 \end{enumerate}
 
