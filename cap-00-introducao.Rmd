@@ -186,5 +186,87 @@ knitr::opts_chunk$set(echo = TRUE)
       \item $|x-y| - |y-x| = |x-y| - |-(x-y)| = |x-y| - |-1|\cdot|x-y| = |x-y| - |x-y| = 0$
     \end{enumerate}
     \fimSol
+    %%%%
+    \item Mostre que $|a-b|$ pode ser interpretado como a distância entre $a$ e $b$ sobre o eixo dos números.\\
+    \iniSol
+      No caso em que $a = b$, $|a-b| = 0$ que é a distãncia entre $a$ e $b$.
+      %%
+      Caso $a > b$:
+      \begin{itemize}
+        \item $a > b > 0 \Rightarrow |a-b| = a-b$
+        \begin{figure}[H]
+          \centering
+          \begin{tikzpicture}
+            \draw[-latex, thick] (-5, 0) node[above] {$-$} -- (5, 0) node[above] {$+$};
+            \draw[thick] (0, 5pt) node[above] {O} -- (0, 0) node[below] {$0$};
+            \draw[thick] (1, 5pt) -- (1, 0) node[below] {$b$};
+            \draw[thick] (4, 5pt) -- (4, 0) node[below] {$a$};
+            \draw [|-|] (1, 10pt) -- (4, 10pt) node[midway, above] {$|a-b| = a-b$};
+          \end{tikzpicture}
+        \end{figure}
+        %%
+        \item $a > b = 0 \Rightarrow |a-b| = |a-0| = |a| = a$
+        \begin{figure}[H]
+          \centering
+          \begin{tikzpicture}
+            \draw[thick] (0, 5pt) -- (0, 0) node[below] {$b = 0$};
+            \draw[thick] (4, 5pt) -- (4, 0) node[below] {$a$};
+            \draw [|-|] (0, 25pt) -- (4, 25pt) node[midway, above] {$|a-b| = a$};
+            \draw[dashed] (0,0) -- (0, 25pt);
+            \draw[dashed] (4,0) -- (4, 25pt);
+            \draw[-latex, thick] (-5, 0) node[above] {$-$} -- (5, 0) node[above] {$+$};
+            \draw[thick] (0, 5pt) node[above, fill=white] {O} -- (0, 0);
+          \end{tikzpicture}
+        \end{figure}
+        %%
+        \item $a > 0 > b$. Façamos $b = -|b|$, em que $|b|$ é a distância entre $b$ e o zero da reta numérica. Então: $|a-b| = |a - (-|b|)| = |a + |b|| = a + |b|$
+        \begin{figure}[H]
+          \centering
+          \begin{tikzpicture}
+            \draw[thick] (-3, 5pt) -- (-3, 0) node[below] {$b$};
+            \draw[thick] (4, 5pt) -- (4, 0) node[below] {$a$};
+            \draw [|-|] (0, 25pt) -- (4, 25pt) node[midway, below] {$|a| = a$};
+            \draw [|-|] (0, 25pt) -- (-3, 25pt) node[midway, below] {$|b|$};
+            \draw[dashed] (0,0) -- (0, 25pt);
+            \draw[dashed] (4,0) -- (4, 25pt);
+            \draw[dashed] (-3, 0) -- (-3, 25pt);
+            \draw[|-|] (-3, 35pt) -- (4, 35pt) node[midway, above] {$|a-b| = a + |b|$};
+            \draw[-latex, thick] (-5, 0) node[above] {$-$} -- (5, 0) node[above] {$+$};
+            \draw[thick] (0, 5pt)  node[above, fill=white] {O} -- (0, 0) node[below] {$0$};
+          \end{tikzpicture}
+        \end{figure}
+        %%
+        \item $a = 0 > b$. Então: $|a-b| = |0 - b| = |-b| = |b|$, em que $|b|$ é a distância entre $b$ e o zero da reta numérica, que neste caso, é a posição de $a$.
+        \begin{figure}[H]
+          \centering
+          \begin{tikzpicture}
+            \draw[thick] (-3, 5pt) -- (-3, 0) node[below] {$b$};
+            \draw[thick] (0, 5pt) -- (0, 0) node[below] {$a=0$};
+            \draw [|-|] (-3, 25pt) -- (0, 25pt) node[midway, above] {$|a-b| = |b|$};
+            \draw[dashed] (-3,0) -- (-3, 25pt);
+            \draw[dashed] (0,0) -- (0, 25pt);
+            \draw[-latex, thick] (-5, 0) node[above] {$-$} -- (5, 0) node[above] {$+$};
+            \draw[thick] (0, 5pt) node[above, fill=white] {O} -- (0, 0);
+          \end{tikzpicture}
+        \end{figure}
+        %%
+        \item $0 > a > b$. Façamos $a = -|a|$ e $b = -|b|$. Então: $|a-b| = |-|a| - (-|b|)| = |-|a| + |b|| = ||b| - |a|| = |b| - |a|$, pois $0 < |a| < |b|$.
+        \begin{figure}[H]
+          \centering
+          \begin{tikzpicture}
+            \draw (-1, 5pt) -- (-1, 0) node[below] {$a$};
+            \draw [|-|] (0, 25pt) -- (-1, 25pt) node[below, midway] {$|a|$};
+            \draw[dashed] (-1, 0) -- (-1, 45pt);
+            \draw (-4, 5pt) -- (-4, 0) node[below] {$b$};
+            \draw[|-|] (0, 35pt) -- (-4, 35pt) node[below, midway] {$|b|$};
+            \draw[dashed] (-4, 0) -- (-4, 45pt);
+            \draw[|-|] (-1, 45pt) -- (-4, 45pt) node[midway, above] {$|a-b| = |b|-|a|$};
+            \draw[-latex, thick] (-5, 0) node[above] {$-$} -- (5, 0) node[above] {$+$};
+            \draw[thick] (0, 5pt) node[above, fill=white] {O} -- (0, 0) node[below] {$0$};
+          \end{tikzpicture}
+        \end{figure}
+      \end{itemize}
+      Os casos em que $b > a$ podem ser determinados de forma análoga, bastando lembrar que $|a-b| = |-(b-a)| = |b-a|$ e repetir o aciocínio acima.
+    \fimSol
 \end{enumerate}
 
