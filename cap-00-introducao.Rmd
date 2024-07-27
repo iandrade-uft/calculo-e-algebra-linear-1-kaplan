@@ -1,0 +1,133 @@
+---
+title: "Título"
+author: "Igo da Costa Andrade"
+
+# Metadados
+booktitle: "Cálculo e Álgebra Linear"
+booksubtitle: "Vol 1: Vetores no plano e funções de uma variáve."
+bookauthors: "Kaplan, W.; Lewis, D. J."
+bookaddres: "Rio de Janeiro"
+bookpublisher: "Ed. Univ, de Brasilia"
+bookyear: "1972"
+chaptertitle: "Introdução"
+chapternumber: "0"
+maincolor: "5b017d"
+
+output: 
+  bookdown::pdf_document2:
+    template: template.tex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+\section*{PROBLEMAS}
+
+\begin{enumerate}
+  \item 
+  \begin{enumerate}[label=(\alph*)]
+    \item Encontre um inteiro $x$ tal que $10 \sqrt{2} < x < 10\sqrt{3}$.\\
+    \iniSol
+      Observemos que $10\sqrt{2}$, $x$ e $10\sqrt{3}$ são números positivos. Então:
+      \begin{itemize} 
+      \item Pela primeira desigualdade, temos:
+      \begin{align*}
+      10\sqrt{2} < x &\Rightarrow
+      \begin{cases}
+        (10\sqrt{2})\cdot (10\sqrt{2}) < (10\sqrt{2}) \cdot x\\
+        (10\sqrt{2})\cdot x < x\cdot x
+      \end{cases}
+      \Rightarrow
+      \begin{cases}
+        200 < (10\sqrt{2}) \cdot x\\
+        (10\sqrt{2}) \cdot x < x^2
+      \end{cases}
+      \\
+      &\Rightarrow 200 < x^2
+      \end{align*}
+      %%
+      \item Pela segunda desigualdade, temos:
+      \begin{align*}
+        x < 10 \sqrt{3} & \Rightarrow
+        \begin{cases}
+          x \cdot x < (10\sqrt{3}) \cdot x \\
+          (10\sqrt{3}) \cdot x < (10\sqrt{3}) \cdot (10 \sqrt{3})
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+          x^2 < (10\sqrt{3}) \cdot x\\
+          (10\sqrt{3}) \cdot x < 300
+        \end{cases}
+        \\
+        &\Rightarrow x^2 < 300
+      \end{align*}
+      \end{itemize}
+      %%
+      Combinando os resultados acima, obtemos:
+      \begin{align*}
+      10\sqrt{2} < x < 10\sqrt{3} \Rightarrow 200 < x^2 < 300 &\Rightarrow x^2 = `r (15:17)^2`\\
+      &\Rightarrow x = `r 15:17`.
+      \end{align*}
+    \fimSol
+    %%%%
+    \item Encontre um inteiro $x$ tal que $-5\sqrt{2} < x < -3\sqrt{3}$.\\
+    \iniSol
+      Observememos que $-5\sqrt{2}$, $x$ e $-3\sqrt{3}$ são todos números negativos.
+      \begin{itemize}
+        \item Pela primeira desigualdade:
+        \begin{align*}
+          -5\sqrt{2} < x &\Rightarrow 
+          \begin{cases}
+          (-5\sqrt{2}) \cdot (-5\sqrt{2}) > (-5\sqrt{2}) \cdot x\\
+          (-5\sqrt{2}) \cdot x > x^2
+          \end{cases}
+          \Rightarrow
+          \begin{cases}
+            50 > (-5\sqrt{2}) \cdot x\\
+            (-5\sqrt{2}) \cdot x > x^2
+          \end{cases}
+          \\
+          &\Rightarrow 50 > x^2
+        \end{align*}
+        %%
+        \item Pela segunda desigualdade,
+        \begin{align*}
+          x < -3\sqrt{3} &\Rightarrow
+          \begin{cases}
+            x \cdot x > (-3\sqrt{3})\cdot x\\
+            (-3\sqrt{3}) \cdot x> (-3\sqrt{3}) \cdot (-3\sqrt{3}) 
+          \end{cases}
+          \Rightarrow 
+          \begin{cases}
+            x^2 > (-3\sqrt{3}) \cdot x\\
+            (-3\sqrt{3}) \cdot x > 27
+          \end{cases}
+          \\
+          &\Rightarrow x^2 > 27
+        \end{align*}
+      \end{itemize}
+      %%
+      Combunando os resultados acima, tem-se:
+      \begin{align*}
+        -5\sqrt{2} < x < -3\sqrt{3} \Rightarrow 50 > x^2 > 27 & \Rightarrow x^2 = `r knitr::combine_words((-7:-6)^2, and="\\;\\text{ou}\\;")` \\&\Rightarrow
+        x^2 = `r knitr::combine_words(-7:-6, before = "(", after = ")^2", and="\\;\\text{ou}\\;")  `\\
+        &\Rightarrow x = `r knitr::combine_words(-7:-6, and="\\;\\text{ou}\\;")`
+      \end{align*}
+    \fimSol
+    %%%%
+    \item Encontre um número racional $x$ tal que $\sqrt{2} < x < \sqrt{3}$.\\
+    \iniSol
+      \begin{align*}
+        \sqrt{2} < x < \sqrt{3} &\Rightarrow (\sqrt{2})^2 < x^2 < (\sqrt{3})^2 \Rightarrow 2 < x^2 < 3
+      \end{align*}
+      A título de exemplo, façamos:
+      \begin{align*}
+        \sqrt{2} < x < \sqrt{3} &\Rightarrow 2 < x^2 < 3 \\
+        &\Rightarrow \dfrac{200}{100} < x^2 < \dfrac{300}{100}
+      \end{align*}
+    \fimSol
+    \end{enumerate}
+\end{enumerate}
+
