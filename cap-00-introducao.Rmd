@@ -173,7 +173,17 @@ knitr::opts_chunk$set(echo = TRUE)
         &u - v = (\sqrt{3} - \sqrt{11}) - (\sqrt{3} - \sqrt{13}) = \sqrt{3} - \sqrt{11} - \sqrt{3} + \sqrt{13}
         = \sqrt{13} - \sqrt{11} > 0\\ \Rightarrow & u > v \Rightarrow \dfrac{1}{x} > \dfrac{1}{y} \Rightarrow x < y
       \end{align*}
-      
+    \end{enumerate}
+    \fimSol
+    %%%%
+    \item Calcule: (a) $|-3.5|$, (b) $|0,2|$, (c) $||x||$, (d) $|-|x||$, (e) $|x-y| - |y-x|$\\
+    \iniSol
+    \begin{enumerate}[label=(\alph*)]
+      \item $|-3.5| = 3.5$
+      \item $|0,2| = 0,2$
+      \item $||x|| = |x|$
+      \item $|-|x|| = |-1| \cdot |x| = 1 \cdot |x| = |x|$
+      \item $|x-y| - |y-x| = |x-y| - |-(x-y)| = |x-y| - |-1|\cdot|x-y| = |x-y| - |x-y| = 0$
     \end{enumerate}
     \fimSol
 \end{enumerate}
