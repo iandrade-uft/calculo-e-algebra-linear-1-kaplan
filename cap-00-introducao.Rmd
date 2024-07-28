@@ -287,7 +287,88 @@ knitr::opts_chunk$set(echo = TRUE)
           x = 3
         \end{cases}
       \end{align*}
+      %%
+      \item
+      \begin{align*}
+        |x+1| = 1 \Rightarrow 
+        \begin{cases}
+          x+1 = -1\\
+          x+1 = 1
+        \end{cases}
+        \Rightarrow
+        \begin{cases}
+          x = 2\\
+          x = 0
+        \end{cases}
+      \end{align*}
     \end{enumerate}
+    \fimSol
+    \item O símbolo $\sqrt{x}$ indica $0$ se $x=0$ e a raiz quadrada positiva de $x$, se $x > 0$. Justifique as seguintes regras para todos reais $x$ e $y$.
+    \begin{enumerate}[label=(\alph*)]
+      \item $\sqrt{x^2} = |x|$\\
+      \iniSol
+        Se $x = 0$, a identidade é imediada.\\
+        Se $x > 0$, então $\sqrt{x^2} = x = |x|$.\\
+        Se $x < 0$, então $-x > 0$. Assim, $\sqrt{x^2} = \sqrt{(-x)^2} = -x = |x|$.\\
+        Portanto, para todo número real $x$, vale $\sqrt{x^2} = |x|$.
+      \fimSol
+      %%
+      \item $\sqrt{x^4} = x^2$\\
+      \iniSol
+        Inicialmente, observemos que para todo $x \in \mathrm{R}$, tem-se que $x^2 > 0$. Assim,
+        $$
+        \sqrt{x^4} = \sqrt{(x^2)^2} = x^2.
+        $$
+      \fimSol
+      %%
+      \item $(x|x|)^2 = x^4$\\
+      \iniSol
+        Se $x = 0$ o resultado é imediatamente verdadeiro.\\
+        Se $x > 0$, temos que $|x| = x$. Nesse caso,
+        $$
+        (x|x|)^2 = (x \cdot x)^2 = (x^2)^2 = x^4.
+        $$
+        Se $x < 0$, temos que $|x| = -x$. Nesse caso,
+        $$
+        (x|x|)^2 = \left[x \cdot (-x)\right]^2 = (-x^2)^2 = (x^2)^2 = x^4.
+        $$
+        Portanto, para qualquer $x$ real, vale $(x|x|)^2 = x^4$.
+      \fimSol
+      %%
+      \item $\sqrt{x^2 - 2xy + y^2} = |x-y|$.\\
+      \iniSol
+        Se $x = y$, a identidade é imediatamente válida.\\
+        Se $x > y$ ($\Rightarrow x - y > 0$),  então
+        \begin{align*}
+          \sqrt{x^2 - 2xy + y^2} = \sqrt{(x-y)^2} = x-y = |x-y|.
+        \end{align*}
+        Se $x < y$ ($\Rightarrow x - y < 0 \Rightarrow -(x-y) > 0$), então
+        \begin{align*}
+          \sqrt{x^2 - 2xy + y^2} = \sqrt{\left[-(x-y)\right]^2} = -(x-y) = |x-y|.
+        \end{align*}
+        Portanto, para quaisquer $x$ e $y$ reais vale $\sqrt{x^2 - 2xy + y^2} = |x-y|$.
+      \fimSol
+    \end{enumerate}
+    \item Mostre que as regras 20 e 21 são válidas para todos os números reais $a$ e $b$.\\
+    \iniSol
+      \begin{itemize}
+        \item Regra 20: $|a| = |-a|$.\\
+        Sem perda de generalidade, seja $a > 0$, donde $-a < 0$. Então, $|a| = a$ e $|-a| = -(-a) = a$. Logo, $|a| = |-a|$.
+        \item Regra 21: $|ab| = |a||b|$.\\
+        Caso I: $a \leq 0$ ($\Rightarrow |a| = a$)  e $b \leq 0$ ($\Rightarrow |b| = b$). Então:
+        \begin{align*}
+          ab \leq 0 \Rightarrow |ab| = ab = |a||b|.
+        \end{align*}
+        Caso II: $a \leq 0$ ($\Rightarrow |a| = a$) e $b < 0$ ($\Rightarrow |b| = -b$). Então:
+        \begin{align*}
+          ab < 0 \Rightarrow |ab| = -(ab) = a \cdot (-b) = |a||b|.
+        \end{align*}
+        Caso III: $a < 0$ ($\Rightarrow |a| = -a$) e $b < 0$ ($\Rightarrow |b| = -b$). Então:
+        \begin{align*}
+          ab > 0 \Rightarrow |ab| = ab = (-a)(-b) = |a||b|.
+        \end{align*}
+        Portanto, para quaisquer reais $a$ e $b$, vale $|ab| = |a||b|$.
+      \end{itemize}
     \fimSol
 \end{enumerate}
 
