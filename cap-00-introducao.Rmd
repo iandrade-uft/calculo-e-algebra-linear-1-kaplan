@@ -427,3 +427,38 @@ knitr::opts_chunk$set(echo = TRUE)
     \fimSol
 \end{enumerate}
 
+\newpage
+\section*{PROBLEMAS (pág. 16)}
+
+\begin{enumerate}
+  \item No plano $xy$, marque os pontos $(3,0)$, $(0, -2)$, $(0,0)$, $(-1, -2)$, $(4, -1)$.
+\end{enumerate}
+
+\iniSol
+```{r, include=FALSE}
+  X <- c(3, 0, 0, -1, 4)
+  Y <- c(0, -2, 0, -2, -1)
+  position <- c("above", "right", "above right", "left", "right")
+  graph <- ""
+  graph <- sprintf("%s \\draw[-latex] (%.1f, 0) -- (%.1f, 0) node[below] {$x$};", graph, min(X)-1, max(X)+1)
+  graph <- sprintf("%s \\draw[-latex] (0, %.1f) -- (0, %.1f) node[left] {$y$};", graph, min(Y)-1, max(Y)+1)
+  n <- length(X)
+  for (i in 1:n) {
+    graph <- sprintf("%s \\draw[dashed] (%d, 0) node[below, fill=white, yshift=-5pt] {$%d$} -- (%d, %d) -- (0, %d) node[left, fill=white, xshift=-4pt] {$%d$};", graph, X[i], X[i], X[i], Y[i], Y[i], Y[i])
+    
+    graph <- sprintf("%s \\filldraw (%d, %d) circle (2pt) node[left, %s] {$(%d, %d)$};", graph, X[i], Y[i], position[i], X[i], Y[i])
+  }
+```
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}[scale=1.5]
+    `r graph`
+  \end{tikzpicture}
+\end{figure}
+
+\fimSol
+
+\begin{enumerate}[resume]
+  \item Mostre que o triângulo com vértices $(2, 2)$, $(5, 7)$, $(10, 4)$ é um triângulo retângulo.
+\end{enumerate}
