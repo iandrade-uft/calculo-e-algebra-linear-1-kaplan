@@ -462,3 +462,40 @@ knitr::opts_chunk$set(echo = TRUE)
 \begin{enumerate}[resume]
   \item Mostre que o triângulo com vértices $(2, 2)$, $(5, 7)$, $(10, 4)$ é um triângulo retângulo.
 \end{enumerate}
+
+\iniSol
+```{r, include=FALSE}
+A <- c(2,2)
+B <- c(5, 7)
+C <- c(10, 4)
+a <- sqrt(sum((C-B)^2))
+b <- sqrt(sum((C-A)^2))
+c <- sqrt(sum((B-A)^2))
+```
+
+  Sejam $A = (2, 2)$, $B = (5, 7)$, $C = (10, 4)$ os vértices do triângulo, conforme mostrado na figura abaixo:
+  
+  \begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+      \coordinate (A) at (`r A`);
+      \coordinate (B) at (`r B`);
+      \coordinate (C) at (`r C`);
+      \draw[-latex] (A) node[left]{A}-- (B)   node[above]{B} -- (C)   node[right]{C} -- (A) --  cycle;
+      \filldraw (A) circle (2pt);
+      \filldraw (B) circle (2pt);
+      \filldraw (C) circle (2pt);
+    \end{tikzpicture}
+  \end{figure}
+  
+  Sejam ainda $a$, $b$ e $c$ as medidas dos lados opostos aos vértices $A$, $B$, e $C$, respectivamente. Temos que:
+  \begin{align*}
+    &a = \overline{BC} = \sqrt{(C_x - B_x)^2 + (C_y - B_y)^2} = \sqrt{(`r C[1]` - `r B[1]`)^2 + (`r C[2]` - `r B[2]`)^2} = `r format(a, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
+    &b = \overline{AC} = \sqrt{(C_x - A_x)^2 + (C_y - A_y)^2} = \sqrt{(`r C[1]` - `r A[1]`)^2 + (`r C[2]` - `r A[2]`)^2} = `r format(b, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
+    &c = \overline{AB} = \sqrt{(B_x - A_x)^2 + (B_y - A_y)^2} = \sqrt{(`r B[1]` - `r A[1]`)^2 + (`r B[2]` - `r A[2]`)^2} = `r format(c, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
+  \end{align*}
+  Observemos que:
+  \begin{align*}
+    \sqrt{a^2 + c^2} = \sqrt{`r format(a, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`^2 + `r format(c, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`^2}= \sqrt{`r format(a^2+c^2, digits=1, decimal.mark=',', big.mark='.')` } = `r format(sqrt(a^2+c^2), digits=1, nsmall=2, decimal.mark=',', big.mark='.')` = b
+  \end{align*}
+\fimSol
