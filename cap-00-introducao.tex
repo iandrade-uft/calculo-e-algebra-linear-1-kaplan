@@ -1,27 +1,158 @@
----
-title: "Título"
-author: "Igo da Costa Andrade"
+\documentclass[twoside]{article}
+\usepackage[left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{mathtools}
+\usepackage{mathrsfs}
+\usepackage{siunitx}
+\usepackage{fancyhdr}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{tikz}
+%\usetikzlibrary{patterns,snakes}
 
-# Metadados
-booktitle: "Cálculo e Álgebra Linear"
-booksubtitle: "Vol 1: Vetores no plano e funções de uma variáve."
-bookauthors: "Kaplan, W.; Lewis, D. J."
-bookaddres: "Rio de Janeiro"
-bookpublisher: "Ed. Univ, de Brasilia"
-bookyear: "1972"
-chaptertitle: "Introdução"
-chapternumber: "0"
-maincolor: "5b017d"
 
-output: 
-  bookdown::pdf_document2:
-    template: template.tex
----
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+% Redefinir o comando \section para ter o mesmo tamanho que \subsection
+\makeatletter
+\renewcommand\section{\@startsection{section}{1}{\z@}%
+                                     {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                     {2.3ex \@plus.2ex}%
+                                     {\normalfont\large\bfseries}}
+\makeatother
 
-```
+
+% Metadados
+\title{Título}
+
+\author{author}
+
+\newcommand{\booktitle}{Cálculo e Álgebra Linear}
+
+\newcommand{\booksubtitle}{: Vol 1: Vetores no plano e funções de uma variáve.}
+
+
+\newcommand{\bookauthors}{Kaplan, W.; Lewis, D. J.}
+
+\newcommand{\bookaddres}{Rio de Janeiro}
+
+\newcommand{\bookpublisher}{Ed. Univ, de Brasilia}
+
+\newcommand{\bookyear}{1972}
+
+\newcommand{\chaptertitle}{Introdução}
+
+\newcommand{\chapternumber}{0}
+
+% Define a cor principal do arquivo
+\definecolor{mainColor}{HTML}{5b017d}
+
+
+
+% Definir leftmargin=* para todos os ambientes enumerate
+\setlist[enumerate,1]{leftmargin=*, label=\textbf{\arabic*.}}
+
+
+% Bold Vector
+\newcommand{\vet}[1]{\mathbf{\hat{#1}}}
+
+% Comando iniciar Solução
+\newcommand{\iniSol}{
+    \noindent\textcolor{mainColor}{\rule{0.3\textwidth}{0.4pt}}\\
+    \noindent\textcolor{mainColor}{\textbf{Solução:}}\\
+}
+
+% Comando finalizar Solução
+\newcommand{\fimSol}{
+    %
+    \hfill\fcolorbox{mainColor}{mainColor}
+
+    
+    \hfill\textcolor{mainColor}{\rule{0.3\textwidth}{0.4pt}}
+}
+
+% Configuração do cabeçalho e rodapé
+\pagestyle{fancy}
+\fancyhf{} % Limpa os cabeçalhos e rodapés atuais
+
+% Cabeçalho para páginas pares
+\fancyhead[RE]{Igo da Costa Andrade}
+
+% Cabeçalho para páginas ímpares
+\fancyhead[LO]{
+        Solucionário de 
+    Cálculo e Álgebra Linear
+        (Kaplan, W.; Lewis, D. J.)
+        }
+
+\fancyhead[RO]{
+    
+}
+
+% Número da página no rodapé (centrado)
+\fancyfoot[C]{\thepage}
+
+% Ajuste para reconhecimento de código python
+
+
+% Novo comando para a criação do cabeçalho personalizado
+\newcommand{\makeheader}{
+  \textcolor{mainColor}{\hrule}
+  \vspace{0.25cm}
+  \begin{minipage}[c]{12cm}
+    \begin{center}
+      Resolução de Problemas do Livro\\
+      \vspace{0.25cm}
+      \textcolor{mainColor}{\large{\textbf{Cálculo e Álgebra Linear: Vol 1: Vetores no plano e funções de uma variáve. (Kaplan, W.; Lewis, D. J.)}}}\\
+      \vspace{0.7cm}
+      \small{por}\\
+      \vspace{0.2cm}
+      \textbf{\large{Igo da Costa Andrade}}
+    \end{center}
+    \vspace{0.25cm}
+    \hrule
+    \vspace{0.25cm}
+    \textbf{Referência}
+  
+    \uppercase{Kaplan, W.; Lewis, D. J.}. \textbf{Cálculo e Álgebra Linear}: Vol 1: Vetores no plano e funções de uma variáve.. Rio de Janeiro, Ed. Univ, de Brasilia, 1972.
+  \end{minipage}
+  \begin{minipage}[c]{4cm}
+    \begin{flushright}
+      \includegraphics[width=0.8\linewidth]{figure/capa.png}    
+    \end{flushright}
+  \end{minipage}
+  \vspace{0.25cm}
+  \textcolor{mainColor}{\hrule}
+  
+  \begin{center}
+    \vspace{0.5cm}
+        \large{\textbf{Capítulo 0: }}
+            \large{\textbf{Introdução}}
+        \vspace{0.5cm}
+  \end{center}
+}
+
+
+\begin{document}
+\thispagestyle{empty}
+
+\makeheader
+
 
 \section*{PROBLEMAS}
 
@@ -67,8 +198,8 @@ knitr::opts_chunk$set(echo = TRUE)
       %%
       Combinando os resultados acima, obtemos:
       \begin{align*}
-      10\sqrt{2} < x < 10\sqrt{3} \Rightarrow 200 < x^2 < 300 &\Rightarrow x^2 = `r (15:17)^2`\\
-      &\Rightarrow x = `r 15:17`.
+      10\sqrt{2} < x < 10\sqrt{3} \Rightarrow 200 < x^2 < 300 &\Rightarrow x^2 = 225, 256, 289\\
+      &\Rightarrow x = 15, 16, 17.
       \end{align*}
     \fimSol
     %%%%
@@ -111,9 +242,9 @@ knitr::opts_chunk$set(echo = TRUE)
       %%
       Combunando os resultados acima, tem-se:
       \begin{align*}
-        -5\sqrt{2} < x < -3\sqrt{3} \Rightarrow 50 > x^2 > 27 & \Rightarrow x^2 = `r knitr::combine_words((-7:-6)^2, and="\\;\\text{ou}\\;")` \\&\Rightarrow
-        x^2 = `r knitr::combine_words(-7:-6, before = "(", after = ")^2", and="\\;\\text{ou}\\;")  `\\
-        &\Rightarrow x = `r knitr::combine_words(-7:-6, and="\\;\\text{ou}\\;")`
+        -5\sqrt{2} < x < -3\sqrt{3} \Rightarrow 50 > x^2 > 27 & \Rightarrow x^2 = 49\;\text{ou}\;36 \\&\Rightarrow
+        x^2 = (-7)^2\;\text{ou}\;(-6)^2\\
+        &\Rightarrow x = -7\;\text{ou}\;-6
       \end{align*}
     \fimSol
     %%%%
@@ -126,8 +257,8 @@ knitr::opts_chunk$set(echo = TRUE)
       \begin{align*}
         \sqrt{2} < x < \sqrt{3} &\Rightarrow 2 < x^2 < 3 \Rightarrow \dfrac{200}{100} < x^2 < \dfrac{300}{100} \\
         &\Rightarrow
-        x^2 = `r knitr::combine_words((15:17)^2, before="\\dfrac{", after="}{100}", and="\\;\\text{ou}\\:")` \Rightarrow x^2 = `r knitr::combine_words(15:17, before="\\left(\\dfrac{", after="}{10}\\right)^2", and="\\;\\text{ou}\\:")` \\
-        &\Rightarrow x = `r knitr::combine_words(15:17, before="\\dfrac{", after="}{10}", and="\\;\\text{ou}\\:")` 
+        x^2 = \dfrac{225}{100}, \dfrac{256}{100}, \;\text{ou}\:\dfrac{289}{100} \Rightarrow x^2 = \left(\dfrac{15}{10}\right)^2, \left(\dfrac{16}{10}\right)^2, \;\text{ou}\:\left(\dfrac{17}{10}\right)^2 \\
+        &\Rightarrow x = \dfrac{15}{10}, \dfrac{16}{10}, \;\text{ou}\:\dfrac{17}{10} 
       \end{align*}
     \fimSol
     %%%%
@@ -435,25 +566,11 @@ knitr::opts_chunk$set(echo = TRUE)
 \end{enumerate}
 
 \iniSol
-```{r, include=FALSE}
-  X <- c(3, 0, 0, -1, 4)
-  Y <- c(0, -2, 0, -2, -1)
-  position <- c("above", "right", "above right", "left", "right")
-  graph <- ""
-  graph <- sprintf("%s \\draw[-latex] (%.1f, 0) -- (%.1f, 0) node[below] {$x$};", graph, min(X)-1, max(X)+1)
-  graph <- sprintf("%s \\draw[-latex] (0, %.1f) -- (0, %.1f) node[left] {$y$};", graph, min(Y)-1, max(Y)+1)
-  n <- length(X)
-  for (i in 1:n) {
-    graph <- sprintf("%s \\draw[dashed] (%d, 0) node[below, fill=white, yshift=-5pt] {$%d$} -- (%d, %d) -- (0, %d) node[left, fill=white, xshift=-4pt] {$%d$};", graph, X[i], X[i], X[i], Y[i], Y[i], Y[i])
-    
-    graph <- sprintf("%s \\filldraw (%d, %d) circle (2pt) node[left, %s] {$(%d, %d)$};", graph, X[i], Y[i], position[i], X[i], Y[i])
-  }
-```
 
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=1.5]
-    `r graph`
+     \draw[-latex] (-2.0, 0) -- (5.0, 0) node[below] {$x$}; \draw[-latex] (0, -3.0) -- (0, 1.0) node[left] {$y$}; \draw[dashed] (3, 0) node[below, fill=white, yshift=-5pt] {$3$} -- (3, 0) -- (0, 0) node[left, fill=white, xshift=-4pt] {$0$}; \filldraw (3, 0) circle (2pt) node[left, above] {$(3, 0)$}; \draw[dashed] (0, 0) node[below, fill=white, yshift=-5pt] {$0$} -- (0, -2) -- (0, -2) node[left, fill=white, xshift=-4pt] {$-2$}; \filldraw (0, -2) circle (2pt) node[left, right] {$(0, -2)$}; \draw[dashed] (0, 0) node[below, fill=white, yshift=-5pt] {$0$} -- (0, 0) -- (0, 0) node[left, fill=white, xshift=-4pt] {$0$}; \filldraw (0, 0) circle (2pt) node[left, above right] {$(0, 0)$}; \draw[dashed] (-1, 0) node[below, fill=white, yshift=-5pt] {$-1$} -- (-1, -2) -- (0, -2) node[left, fill=white, xshift=-4pt] {$-2$}; \filldraw (-1, -2) circle (2pt) node[left, left] {$(-1, -2)$}; \draw[dashed] (4, 0) node[below, fill=white, yshift=-5pt] {$4$} -- (4, -1) -- (0, -1) node[left, fill=white, xshift=-4pt] {$-1$}; \filldraw (4, -1) circle (2pt) node[left, right] {$(4, -1)$};
   \end{tikzpicture}
 \end{figure}
 
@@ -464,47 +581,39 @@ knitr::opts_chunk$set(echo = TRUE)
 \end{enumerate}
 
 \iniSol
-```{r, include=FALSE}
-A <- c(2,2)
-B <- c(5, 7)
-C <- c(10, 4)
-a <- sqrt(sum((C-B)^2))
-b <- sqrt(sum((C-A)^2))
-c <- sqrt(sum((B-A)^2))
-```
 
-  Sejam $A = (2, 2)$, $B = (5, 7)$, $C = (10, 4)$ os vértices do triângulo, conforme mostrado na figura abaixo:
-  
-  \begin{figure}[H]
+Sejam \(A = (2, 2)\), \(B = (5, 7)\), \(C = (10, 4)\) os vértices do triângulo, conforme mostrado na figura abaixo:
+
+\begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=0.6]
-      \coordinate (A) at (`r A`);
-      \coordinate (B) at (`r B`);
-      \coordinate (C) at (`r C`);
+      \coordinate (A) at (2, 2);
+      \coordinate (B) at (5, 7);
+      \coordinate (C) at (10, 4);
       \filldraw (A) circle (2pt);
       \filldraw (B) circle (2pt);
       \filldraw (C) circle (2pt);
-      \draw[-latex] (`r min(c(0, A[1], B[1], C[1]))-1`, 0) -- (`r max(c(A[1], B[1], C[1]))+1`, 0) node[below] {$x$};
-      \draw[-latex] (0, `r min(c(0, A[2], B[2], C[2]))-1`) -- (0, `r max(c(A[2], B[2], C[2]))+1`) node[left] {$y$};
-      \draw[dashed] (`r A[1]`, 0) node[below] {$`r A[1]`$}-- (A) -- (0, `r A[2]`) node[left] {$`r A[2]`$};
-      \draw[dashed] (`r B[1]`, 0) node[below] {$`r B[1]`$}-- (B) -- (0, `r B[2]`) node[left] {$`r B[2]`$};
-      \draw[dashed] (`r C[1]`, 0) node[below] {$`r C[1]`$}-- (C) -- (0, `r C[2]`) node[left] {$`r C[2]`$};
+      \draw[-latex] (-1, 0) -- (11, 0) node[below] {$x$};
+      \draw[-latex] (0, -1) -- (0, 8) node[left] {$y$};
+      \draw[dashed] (2, 0) node[below] {$2$}-- (A) -- (0, 2) node[left] {$2$};
+      \draw[dashed] (5, 0) node[below] {$5$}-- (B) -- (0, 7) node[left] {$7$};
+      \draw[dashed] (10, 0) node[below] {$10$}-- (C) -- (0, 4) node[left] {$4$};
       \draw[fill=white, fill opacity=0.4] (A) node[above left, fill opacity=1]{A}-- (B)   node[above, fill opacity=1]{B} -- (C)   node[right, fill opacity=1] {C} -- (A) --  cycle;
     \end{tikzpicture}
   \end{figure}
-  
-  Sejam ainda $a$, $b$ e $c$ as medidas dos lados opostos aos vértices $A$, $B$, e $C$, respectivamente. Temos que:
-  \begin{align*}
-    &a = \overline{BC} = \sqrt{(C_x - B_x)^2 + (C_y - B_y)^2} = \sqrt{(`r C[1]` - `r B[1]`)^2 + (`r C[2]` - `r B[2]`)^2} = `r format(a, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
-    &b = \overline{AC} = \sqrt{(C_x - A_x)^2 + (C_y - A_y)^2} = \sqrt{(`r C[1]` - `r A[1]`)^2 + (`r C[2]` - `r A[2]`)^2} = `r format(b, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
-    &c = \overline{AB} = \sqrt{(B_x - A_x)^2 + (B_y - A_y)^2} = \sqrt{(`r B[1]` - `r A[1]`)^2 + (`r B[2]` - `r A[2]`)^2} = `r format(c, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
+
+Sejam ainda \(a\), \(b\) e \(c\) as medidas dos lados opostos aos vértices \(A\), \(B\), e \(C\), respectivamente. Temos que:
+\begin{align*}
+    &a = \overline{BC} = \sqrt{(C_x - B_x)^2 + (C_y - B_y)^2} = \sqrt{(10 - 5)^2 + (4 - 7)^2} = 5,83\\
+    &b = \overline{AC} = \sqrt{(C_x - A_x)^2 + (C_y - A_y)^2} = \sqrt{(10 - 2)^2 + (4 - 2)^2} = 8,25\\
+    &c = \overline{AB} = \sqrt{(B_x - A_x)^2 + (B_y - A_y)^2} = \sqrt{(5 - 2)^2 + (7 - 2)^2} = 5,83\\
   \end{align*}
-  Observemos que:
-  \begin{align*}
-    \sqrt{a^2 + c^2} = \sqrt{`r format(a, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`^2 + `r format(c, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`^2}= \sqrt{`r format(a^2+c^2, digits=1, decimal.mark=',', big.mark='.')` } = `r format(sqrt(a^2+c^2), digits=1, nsmall=2, decimal.mark=',', big.mark='.')` = b
+Observemos que:
+\begin{align*}
+    \sqrt{a^2 + c^2} = \sqrt{5,83^2 + 5,83^2}= \sqrt{68 } = 8,25 = b
   \end{align*}
-  
-  Portanto, o triângulo $ABC$ é retângulo em $B$.
+
+Portanto, o triângulo \(ABC\) é retângulo em \(B\).
 \fimSol
 
 \begin{enumerate}[resume]
@@ -512,39 +621,34 @@ c <- sqrt(sum((B-A)^2))
 \end{enumerate}
 
 \iniSol
-```{r, include=FALSE}
-A <- c(1,1)
-B <- c(3,5)
-C <- c(10, -1)
-a <- sqrt(sum((C-B)^2))
-b <- sqrt(sum((C-A)^2))
-c <- sqrt(sum((B-A)^2))
-```
 
-  Sejam $A = (`r A`)$, $B = (`r B`)$, $C = (`r C`)$ os vértices do triângulo, conforme mostrado na figura abaixo:
-  
+Sejam \(A = (1, 1)\), \(B = (3, 5)\), \(C = (10, -1)\) os vértices do triângulo, conforme mostrado na figura abaixo:
+
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}[scale=0.6]
-    \coordinate (A) at (`r A`);
-    \coordinate (B) at (`r B`);
-    \coordinate (C) at (`r C`);
+    \coordinate (A) at (1, 1);
+    \coordinate (B) at (3, 5);
+    \coordinate (C) at (10, -1);
     \filldraw (A) circle (2pt) node[left, yshift=5pt] {$A$};
     \filldraw (B) circle (2pt) node[above] {$B$};
     \filldraw (C) circle (2pt) node[right] {$C$};
     \draw (A) -- (B) -- (C) -- cycle;
-    \draw[-latex] (`r min(c(0, A[1], B[1], C[1]))-1`, 0) -- (`r max(c(A[1], B[1], C[1]))+1`, 0) node[below] {$x$};
-    \draw[-latex] (0, `r min(c(0, A[2], B[2], C[2]))-1`) -- (0, `r max(c(A[2], B[2], C[2]))+1`) node[left] {$y$};
-    \draw[dashed] (`r A[1]`, 0) node[below] {$`r A[1]`$} -- (`r A`) -- (0,`r A[2]`) node[left] {$`r A[2]`$};
-    \draw[dashed] (`r B[1]`, 0) node[below] {$`r B[1]`$} -- (`r B`) -- (0,`r B[2]`) node[left] {$`r B[2]`$};
-    \draw[dashed] (`r C[1]`, 0) node[below] {$`r C[1]`$} -- (`r C`) -- (0,`r C[2]`) node[left] {$`r C[2]`$};
+    \draw[-latex] (-1, 0) -- (11, 0) node[below] {$x$};
+    \draw[-latex] (0, -2) -- (0, 6) node[left] {$y$};
+    \draw[dashed] (1, 0) node[below] {$1$} -- (1, 1) -- (0,1) node[left] {$1$};
+    \draw[dashed] (3, 0) node[below] {$3$} -- (3, 5) -- (0,5) node[left] {$5$};
+    \draw[dashed] (10, 0) node[below] {$10$} -- (10, -1) -- (0,-1) node[left] {$-1$};
   \end{tikzpicture}
 \end{figure}
-  Sejam ainda $a$, $b$ e $c$ as medidas dos lados opostos aos vértices $A$, $B$ e $C$, respectivamente. Temos que:
+
+Sejam ainda \(a\), \(b\) e \(c\) as medidas dos lados opostos aos vértices \(A\), \(B\) e \(C\), respectivamente. Temos que:
 \begin{align*}
-    &a = \overline{BC} = \sqrt{(C_x - B_x)^2 + (C_y - B_y)^2} = \sqrt{(`r C[1]` - `r B[1]`)^2 + (`r C[2]` - `r B[2]`)^2} = `r format(a, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
-    &b = \overline{AC} = \sqrt{(C_x - A_x)^2 + (C_y - A_y)^2} = \sqrt{(`r C[1]` - `r A[1]`)^2 + (`r C[2]` - `r A[2]`)^2} = `r format(b, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
-    &c = \overline{AB} = \sqrt{(B_x - A_x)^2 + (B_y - A_y)^2} = \sqrt{(`r B[1]` - `r A[1]`)^2 + (`r B[2]` - `r A[2]`)^2} = `r format(c, digits=1, nsmall=2, decimal.mark=',', big.mark='.')`\\
+    &a = \overline{BC} = \sqrt{(C_x - B_x)^2 + (C_y - B_y)^2} = \sqrt{(10 - 3)^2 + (-1 - 5)^2} = 9,22\\
+    &b = \overline{AC} = \sqrt{(C_x - A_x)^2 + (C_y - A_y)^2} = \sqrt{(10 - 1)^2 + (-1 - 1)^2} = 9,22\\
+    &c = \overline{AB} = \sqrt{(B_x - A_x)^2 + (B_y - A_y)^2} = \sqrt{(3 - 1)^2 + (5 - 1)^2} = 4,47\\
   \end{align*}
-  Node $a = b$. Então o triângulo $ABC$ é isósceles.
+Node \(a = b\). Então o triângulo \(ABC\) é isósceles.
 \fimSol
+
+\end{document}
